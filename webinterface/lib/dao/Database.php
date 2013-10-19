@@ -1,6 +1,6 @@
 <?php
 /**
- * Change database credentials here
+ * Change database credentials here. All DAO classes extend this class.
  *
  */
 class Database {
