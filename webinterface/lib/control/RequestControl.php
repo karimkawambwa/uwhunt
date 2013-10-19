@@ -11,7 +11,9 @@
 				$loginControl = new LoginControl($request);
 				$loginControl->getLoginPage();
 				break;
-			
+			case 'loginStudent':
+				studentLogin();
+				break;
 			default:
 				//Welcome page
 				echo '<h1>Welcome Your Grace';
@@ -22,4 +24,9 @@
 		echo '<h1>Welcome Your Grace</h1>';
 	}
 
+	function studentLogin(){
+		$postRequest = $_POST;
+		$loginControl = new LoginControl($postRequest);
+		$loginControl->checkInStudent();
+	}
 ?>

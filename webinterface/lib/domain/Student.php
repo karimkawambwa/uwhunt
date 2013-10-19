@@ -8,12 +8,14 @@
 		public $salt;
 		public $student_email;
 		public $student_phone;
+	
+		public function __construct(){
+			
+		}
+
+		public function getStudentName(){
+			return $this->first_name.' '.$this->last_name;
+		}
+
 	}
-
-	public function __construct(){}
-
-	public function getStudentName(){
-		return $first_name.' '.$last_name;
-	}
-
 ?>

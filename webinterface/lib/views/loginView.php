@@ -47,11 +47,11 @@
 					</ul>
 				</div>
 				<div class="span9">
-					<form class="form-signin">
+					<form method="POST" class="form-signin" action="RequestControl.php?request=loginStudent" >
 				    	<h2 class="form-signin-heading">Please sign in</h2>
-				        <input type="text" class="input-block-level" placeholder="Email address">
-				        <input type="password" class="input-block-level" placeholder="Password">
-				        <button class="btn btn-large btn-primary" type="submit">Sign in</button>
+				        <input type="text" class="input-block-level" placeholder="Email address" name="username">
+				        <input type="password" class="input-block-level" placeholder="Password" name="enteredPassword">
+				        <button class="btn btn-large btn-primary" type="submit" name="loginStudent">Sign in</button>
 				    </form>
 				</div>
 			</div>
