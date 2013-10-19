@@ -1,20 +1,25 @@
 <?php
+	include_once('LoginControl.php');
+
 	$request = '';
 
 	if(isset($_GET['request'])){
 		$request = $_GET['request'];
 
-		switch ($request) {
-			case 'value':
-				# code...
+		switch ($request){
+			case 'navigateToLogin':
+				$loginControl = new LoginControl($request);
+				$loginControl->getLoginPage();
 				break;
 			
 			default:
+				//Welcome page
 				echo '<h1>Welcome Your Grace';
 				break;
 		}
 	} else {
 		//Welcome page
 		echo '<h1>Welcome Your Grace</h1>';
-	}	
+	}
+
 ?>
