@@ -1,3 +1,40 @@
 <?php
+/**
+ * Change database credentials here
+ *
+ */
+class Database {
+	protected $_host;
+	protected $_database;
+	protected $_user;
+	protected $_password;
+	protected $_connection;
+	
+	public function __construct(
+        $host = 'localhost',
+        $database = 'uwhunt_web_db',
+        $user = 'root',
+        $password = ''
+    )
+    {
+        $this->_host   = $host;
+        $this->_database = $database;
+        $this->_user     = $user;
+        $this->_password = $password;
+    }
 
+	public function openConnection(){
+		try{
+			$this->_connection = new PDO('mysql:host='.$this->_host.';dbname='.$this->_database, 
+										$this->_user, $this->_password);
+			$this->_connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		} catch (PDOException $e) {
+			echo 'ERROR: '. $e->getMessage();
+		}
+	}
+	
+	public function endConnection(){
+		$this->_connection = null;
+	}
+}	
 ?>
