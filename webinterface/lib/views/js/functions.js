@@ -20,28 +20,28 @@ function showLoginForm() {
 
 function login() { // This event fires when a button is clicked
   		
-  	  var _data =  "command=login" + "&username=" + document.getElementById('uname').value +
+  	  var _data =  "username=" + document.getElementById('uname').value +
 								 "&password=" + document.getElementById('pword').value  ;
 	
 	  document.getElementById("indicator").innerHTML = "verifying...";
 	  
 	   $.ajax({ // ajax call starts
 		  	  type: "POST",
-			  url: 'database/access.php', // JQuery loads serverside.php
+			  url: 'RequestControl.php?request=loginStudent', // JQuery loads serverside.php
 			  data: _data, // Send value of the clicked button
 			  dataType: 'json', // Choosing a JSON datatype
 			  success: function(data) // Variable data contains the data we get from serverside
 			  {
-					 if (data.Response.Login == 'SUCCESS'){
+					 if (data.RESPONSE.LOGIN.VALIDATION  == 'SUCCESS'){
 			 
 						document.getElementById("indicator").innerHTML = ":) Success.";
 				
-						var userXM = data.Response.extraMap;
+						var user_info = data.RESPONSE.USERINFO ;
 				
 						document.getElementById("logged_in_as").innerHTML = "Logged in as: " 
-															+ userXM.Firstname +" "
-															+ userXM.Lastname +" ("
-															+ userXM.Username + ")" ;
+															+ user_info.Firstname +" "
+															+ user_info.Lastname +" ("
+															+ user_info.Username + ")" ;
 															
 						document.getElementById("dp").innerHTML = '<li><a href="#"><i class="icon-user"></i>Profile</a></li>' 
 																	+ '<li><a href="#"><i class="icon-cog"></i>Settings</a></li>'
@@ -50,16 +50,15 @@ function login() { // This event fires when a button is clicked
 						document.getElementById("indicator").innerHTML = ":) Success.";
 						
 						hideLoginForm();
-						document.getElementById('showLeftPush').click();
 				
 					 }
 				 
-					 else if (data.Response.Login == 'LOGGED IN'){
-						document.getElementById("indicator").innerHTML = data.Response.Message;
+					 else if (data.RESPONSE.LOGIN.VALIDATION  == 'LOGGED IN'){
+						document.getElementById("indicator").innerHTML = data.RESPONSE.LOGIN.MESSAGE
 					 }
 				 
-					 else if (data.Response.Login == 'FAILED'){
-						document.getElementById("indicator").innerHTML = data.Response.Message;
+					 else if (data.RESPONSE.LOGIN.VALIDATION  == 'FAILED'){
+						document.getElementById("indicator").innerHTML = data.RESPONSE.LOGIN.MESSAGE;
 					 }
 					 
 					 else

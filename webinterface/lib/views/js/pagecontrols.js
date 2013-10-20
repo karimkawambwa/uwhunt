@@ -25,60 +25,60 @@ window.onload = function() {/*
 				page1 = document.getElementById( 'page1' ),
 				page2 = document.getElementById( 'page2' ),
 				body = document.body;
+				showingLeft = false;
+				showingRight = false;
 
 			showLeftPush.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
 				classie.toggle( menuLeft, 'cbp-spmenu-open' );
 				
-				disableOther( 'showLeftPush' );
-			};
-			
-			document.getElementById( 'dropdown-login' ).onclick() = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-				document.getElementById( 'dd' ).click();
+				if (showingLeft == true){
+					showingLeft = false;
+				}else{
+					showingLeft = true;
+				}
+				
+				if (showingRight == true){ // close left view
+				classie.toggle( body, 'cbp-spmenu-push-toleft' );
+				classie.toggle( regRight, 'cbp-spmenu-open' );
+				showingRight = false;
+				}
 				
 				disableOther( 'showLeftPush' );
 			};
-
 			
 			showRightPush.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toleft' );
 				classie.toggle( regRight, 'cbp-spmenu-open' );
 				
+				if (showingRight == true){
+					showingRight = false;
+				}else{
+					showingRight = true;
+				}
+				
+				if (showingLeft == true){ // close left view
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
 				classie.toggle( menuLeft, 'cbp-spmenu-open' );
-
-				disableOther( 'showRightPush' );
-			};
-			
-			document.getElementById( 'dropdown-register' ).onclick() = function() {
-				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( regRight, 'cbp-spmenu-open' );
-				document.getElementById( 'dd' ).click();
+				showingLeft = false;
+				}
+					
 
 				disableOther( 'showRightPush' );
 			};
 			
 			backToLogin.onclick = function() {
 				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( regRight, 'cbp-spmenu-open' );
-				
-				classie.toggle( body, 'cbp-spmenu-push-toright' );
-				classie.toggle( menuLeft, 'cbp-spmenu-open' );
+				showLeftPush.click();
 
 				disableOther( 'showRightPush' );
 			};
 			
 			cancelSignup.onclick = function() {
 				classie.toggle( this, 'active' );
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( regRight, 'cbp-spmenu-open' );
+				showRightPush.click();
 				disableOther( 'showRightPush' );
 			};
 			
@@ -226,13 +226,28 @@ function showLoginForm() {
         $("#log-out").hide();
 }
 
+function show_Left() {
+		document.getElementById( 'showLeftPush' ).click();
+		document.getElementById( 'dd' ).click();
+}
+
+function show_Right() {
+		document.getElementById( 'reg' ).click();
+		document.getElementById( 'dd' ).click();
+
+}
 
 function disableOther( button ) {
 
 		if( button !== 'showLeftPush' ) {
 				classie.toggle( showLeftPush, 'disabled' );
-			}
+				
+		}
 			
+		if( button !== 'showRightPush' ) {
+			classie.toggle( showLeftPush, 'disabled' );
+		}
+		
 			/*
 			if( button !== 'showLeft' ) {
 								classie.toggle( showLeft, 'disabled' );
