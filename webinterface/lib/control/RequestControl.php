@@ -33,6 +33,6 @@
 	function studentLogin(){
 		$postRequest = $_POST;
 		$loginControl = new LoginControl($postRequest);
-		$loginControl->checkInStudent();
+		echo($loginControl->checkInStudent());
 	}
 ?>

@@ -28,13 +28,14 @@
 
 				if($result->rowCount() == 1){
 					$student = $result->fetch();
-					echo "Logged as : ". $student->getStudentName();
-					
 					return $student;
+				} else {
+					return null;
 				}
 		
 			} catch (PDOException $e) {
 				echo 'Error logging Student: ' . $e->getMessage();
+				return null;
 			}
 		}
 	}

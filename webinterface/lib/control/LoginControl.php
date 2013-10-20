@@ -15,7 +15,6 @@
 
 		public function checkInStudent(){
 			//$request is the $_POST in this case.
-
 			if(isset($this->request['username']) && isset($this->request['enteredPassword'])){
 				$postObject = $this->request;
 
@@ -25,8 +24,19 @@
 				$student->student_password = $postObject['enteredPassword'];
 
 				$studentDao = new StudentDao();
-				$studentDao->loginStudent($student);
+				$student = $studentDao->loginStudent($student);
 
+				/*Checking if a student was found with the credentials*/
+				if($student != null) {
+					$_SESSION['studentId'] = $student->student_id;
+					return json_encode(array('login' => 'success',
+											 'username' => $student->username,
+											 'studentId' => $student->student_id));
+				} else { //unsuccessful login
+					return json_encode(array('login' => 'fail',
+											 'username' => null,
+											 'studentId' => null));
+				}
 			}
 		}
 	}

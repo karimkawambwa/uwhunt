@@ -28,61 +28,49 @@
 		<script src="../../js/pagecontrols.js"></script>
 		<!-- <script src="js/multiform.js"></script> -->
 	</head>
-<body class="cbp-spmenu-push"  > <!-- onload="checkLogin()" -->
-	
+	<body class="cbp-spmenu-push"  > <!-- onload="checkLogin()" -->
 		<header>
-		<div><button id="showLeftPush" style=" width: 50px; height:50px; background: #176af2; border:none;">Menu</button><h1 id="home">HUNT</h1> 
-		</div>
-		
-		<nav >
-		<a>How to Use</a>
-		<a>Support us</a>
-		<a id="page1Link">Contact Us</a>
-		<a id="page2Link">Report issue</a>
-		<a>About</a> 
-		<a>Feedback</a>
-		</br></br><!-- <h3 id="logged_in_as" align="right"> </h3> -->
-		
-		<div id="dd" class="wrapper-dropdown-5" tabindex="1" ><h1 id="logged_in_as" align="right" > </h1>
-		    <ul class="dropdown" id="dp" >
-		    <div id="loggedInMenu">
-		        <li><a href="#" id="dropdown-profile"><i class="icon-user"></i>Profile</a></li>
-		        <li><a href="#" id="dropdown-settings"><i class="icon-cog"></i>Settings</a></li>
-		        <li><a href="#" id="dropdown-logout" onclick="logout()"><i class="icon-remove"></i>Log out</a></li>
-		    </div>
-		    <div id="loggedOutMenu">
-		        <li ><a href="#" id="dropdown-register" onclick="show_Right()"><i class="icon-cog"></i>Register</a></li>
-		        <li><a href="#" id="dropdown-login" onclick="show_Left()"><i class="icon-remove"></i>Log in</a></li>
-		    </div>
-		    </ul>
-		</div>
+			<div>
+				<button id="showLeftPush" style=" width: 50px; height:50px; background: #176af2; border:none;">Menu</button><h1 id="home">HUNT</h1> 
+			</div>
 			
-		</nav>
-		
-		</div>
+			<nav>
+				<a>How to Use</a>
+				<a>Support us</a>
+				<a id="page1Link">Contact Us</a>
+				<a id="page2Link">Report issue</a>
+				<a>About</a> 
+				<a>Feedback</a>
+				</br></br><!-- <h3 id="logged_in_as" align="right"> </h3> -->
+				
+				<div id="dd" class="wrapper-dropdown-5" tabindex="1" ><h1 id="logged_in_as" align="right" > </h1>
+				    <ul class="dropdown" id="dp" >
+				    <div id="loggedInMenu">
+				        <li><a href="#" id="dropdown-profile"><i class="icon-user"></i>Profile</a></li>
+				        <li><a href="#" id="dropdown-settings"><i class="icon-cog"></i>Settings</a></li>
+				        <li><a href="#" id="dropdown-logout" onclick="logout()"><i class="icon-remove"></i>Log out</a></li>
+				    </div>
+				    <div id="loggedOutMenu">
+				        <li ><a href="#" id="dropdown-register" onclick="show_Right()"><i class="icon-cog"></i>Register</a></li>
+				        <li><a href="#" id="dropdown-login" onclick="show_Left()"><i class="icon-remove"></i>Log in</a></li>
+				    </div>
+				    </ul>
+				</div>
+			</nav>
 		</header>
 		
 	
 		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
-			<h3 >
-			House Hunt for University Students
-				
-			</h3>
-			<h1 id="indicator">
-				
-			</h1>
-			<h1 >
-			<div id="log-in-form">
-			Username: <input id="uname" class="text-field" type="text" 		name="username" placeholder="Username"/><br><br>
-			Password: <input id="pword" class="text-field" type="password" 	name="password" placeholder="Password"/><br><br>
-			
-			<input  id="log-in"  value="login" 	  name="command" class="custom-button" onclick="login()"/>
-			<input  id="reg" 	 value="Register" name="command" class="custom-button" />
-			</div>
-			
-			<input  id="log-out" value="logout"   name="command" class="custom-button" onclick="logout()"/>
-			<!-- onClick="location.href='http://www.chataloo.comli.com/web/register.html';" -->
-			
+			<h3>House Hunt for University Students</h3>
+			<!--<h1 id="indicator"></h1>-->
+			<h1>
+				<div id="log-in-form">
+					Username: <input id="uname" class="text-field" type="text" name="uname" placeholder="Username/Email"/><br><br>
+					Password: <input id="pword" class="text-field" type="password" name="pword" placeholder="Password"/><br><br>
+					<input  id="log-in" value="login" name="command" class="custom-button" onclick="loginStudent()" style="cursor: pointer;"/>
+					<input  id="reg" value="Register" name="command" class="custom-button" style="cursor: pointer;"/>
+				</div>
+				<!--<input  id="log-out" value="logout"   name="command" class="custom-button" onclick="logout()"/>-->
 			</h1>
 			
 			<a id="explore" href="#" onclick="document.getElementById('showLeftPush').click()">Explore		</a>
@@ -91,87 +79,87 @@
 			<a id="team" href="#" onclick="document.getElementById('showLeftPush').click()">Team		</a>
 			 
 		</nav>
+
+		<script type="text/javascript">
+			function loginStudent(){
+				var apiUrl = "RequestControl.php?request=loginStudent";
+				var formData = {username: $('#uname').val(), enteredPassword: $('#pword').val()};
+				$.ajax({
+					type: 'POST',
+					url: apiUrl,
+					data: formData,
+					dataType: 'json',
+
+					success: function(data){ //that is, server sent a response.
+						if(data.login == 'success'){
+							$('#log-in-form').replaceWith('<p>Logged in as: '
+								+data.username
+								+'</p>'
+								+'<input id="log-out" value="logout" name="command" class="custom-button" onclick="logout()"/>');
+						} else {
+							//show error
+						}
+					}
+				});
+			}
+		</script>
 		
 		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-reg">
-			<h3>
-			Signup</h3>
-			</h3>
-			<h1 id="reg-indicator">
-			</h1>
+			<h3>Signup</h3>
+			<h1 id="reg-indicator"></h1>
 
 			<h1>
-			   
-		      <input id="firstname" name="firstname" class="text-field" placeholder="First Name">
-		      <input id="lastname" name="lastname" class="text-field" placeholder="Last Name">
-		      <input id="username" name="username" class="text-field" placeholder="Username">
-		      <input id="pass1" type ='password' name="password" class="text-field" placeholder="Password">
-		      <input id="pass2" type ='password' name="confirm" class="text-field" placeholder="Please confirm your password">			      		      <input id="email" type ='email' name="email" class="text-field" placeholder="E-mail">
-			  <input id="phone_number" name="phone_number" class="text-field" placeholder="Phone number"><br><br>
-		      <input id="allow_calling" name="allow_calling" type="checkbox" value="1">Check to allow calls. Uncheck to allow only texts.			
-		      
-			<input value="Submit" class="custom-button" onclick="signup()"/>
-			<input id="back_to_login" value="Login" name="command" class="custom-button" />
-			<input  id="cancel" value="Cancel" name="command" class="custom-button" />
-			<!-- onClick="location.href='http://www.chataloo.comli.com/web/register.html';" -->
-			
+			    <input id="firstname" name="firstname" class="text-field" placeholder="First Name">
+			    <input id="lastname" name="lastname" class="text-field" placeholder="Last Name">
+			    <input id="username" name="username" class="text-field" placeholder="Username">
+			    <input id="pass1" type ='password' name="password" class="text-field" placeholder="Password">
+			    <input id="pass2" type ='password' name="confirm" class="text-field" placeholder="Please confirm your password">			      		      
+			    <input id="email" type ='email' name="email" class="text-field" placeholder="E-mail">
+				<input id="phone_number" name="phone_number" class="text-field" placeholder="Phone number"><br><br>
+			    <input id="allow_calling" name="allow_calling" type="checkbox" value="1"><!--Check to allow calls. Uncheck to allow only texts.			--> 
+				<input value="Submit" class="custom-button" onclick="signup()"/>
+				<input id="back_to_login" value="Login" name="command" class="custom-button" />
+				<input  id="cancel" value="Cancel" name="command" class="custom-button" />
+				<!-- onClick="location.href='http://www.chataloo.comli.com/web/register.html';" -->
 			</h1>
 			
 		</nav>
 		
 		<div id="page1">
 			<div class="form-wrapper">
-			<form >
-			
-			<input  id="searchField" type="text" placeholder="Search here..." required>
-			<button id="searchButton" type="button" onclick="search(document.getElementById('searchField').value)" >Search</button>
-			
-			</form>
+				<form >
+					<input  id="searchField" type="text" placeholder="Search here..." required>
+					<button id="searchButton" type="button" onclick="search(document.getElementById('searchField').value)" >Search</button>
+				</form>
 			</div>
-				
-				
-				<div class="main">
-					<section>
-						<h2>Search by:</h2>
-						<!-- Class "cbp-spmenu-open" gets applied to menu -->
-						<button id="search_by_city">	City		</button>
-						<button id="search_by_work">	Workplace	</button>
-						<button id="search_by_street">	Street		</button>
-						
-						<div id="testing"> <!-- For testing purposes -->
-						<!-- 
-<button  onclick="test()" >SimulateTest </button>
-						<button id="test" >Test</button>
- -->
-						</div>
-						
-					</section>
+			<div class="main">
+				<section>
+					<h2>Search by:</h2>
+					<!-- Class "cbp-spmenu-open" gets applied to menu -->
+					<button id="search_by_city">	City		</button>
+					<button id="search_by_work">	Workplace	</button>
+					<button id="search_by_street">	Street		</button>
+				</section>
 					
-					<section class="buttonset">
-						<!-- <h2>Push Menus</h2> -->
-						<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
-						<!-- <button id="showLeftPush">Show/Hide Left Push Menu</button> -->
-						
-					</section>
-					
-					
-				</div>
+				<section class="buttonset">
+					<!-- <h2>Push Menus</h2> -->
+					<!-- Class "cbp-spmenu-open" gets applied to menu and "cbp-spmenu-push-toleft" or "cbp-spmenu-push-toright" to the body -->
+					<!-- <button id="showLeftPush">Show/Hide Left Push Menu</button> -->
+				</section>
 			</div>
-		
-		</div> <!-- page1 end -->
+		</div><!-- page1 end -->
 		
 		<div id="result-page">
-			
-		<div id="result">
-			
-		</div>
+			<div id="result">
+			</div>
 		</div>
 		
 	    <div id="page2">
-		<p>Page 2</p>
+			<p>Page 2</p>
 	    </div>
 	    
 	    <div id="explore_page">
-	    <p>Explore.</p>
+	    	<p>Explore.</p>
 	    </div>
 	    
 	    
@@ -179,9 +167,6 @@
 	    <!--          POST A HOUSE          -->
 	    
 	    <div id="posthouse_page">
-	    
-	    
-	    
 	    <!-- multistep form -->
 				<form id="msform">
 					<!-- progressbar -->
@@ -197,53 +182,32 @@
 						    
 						    <table width="100%" class="subforum">
 						    
-						    <tr>
-						
-						            <input name="HouseStreet"  placeholder="Street">
-						
-						    </tr>
+						    <tr><input name="HouseStreet"  placeholder="Street"></tr>
 						
 						    <tr>
-						
-						    <td>
-						
-						            <input name="HouseCity"  placeholder="City">
-						
-						    </td>
+								<td>
+									<input name="HouseCity"  placeholder="City">
+						    	</td>
 						    
-						    <td>
-						
-						            <input name="HousePostalCode"  placeholder="Postal Code">
-						
-						    </td>
-						    
+						    	<td>
+									<input name="HousePostalCode"  placeholder="Postal Code">
+						    	</td>
 						    </tr>
 						    
 						    <tr>
-						    
-						    <tr>
-						
-						    <td>
-						
-						            <input name="HouseRating"  placeholder="Rating (out of 10)">
-						
-						    </td>
-						    
-						    <td>
-						
-						            <input name="HouseConvenience"  placeholder="Convenience">
-						
-						    </td>
-						    
-						    <td>
-						
-						            <input name="HouseCapacity" class="app-input" placeholder="Capacity">
-						
-						    </td>
-						    
-						    </tr>
-						  
-						
+							    <tr>
+								    <td>
+								        <input name="HouseRating"  placeholder="Rating (out of 10)">
+								    </td>
+								    
+								    <td>
+										<input name="HouseConvenience"  placeholder="Convenience">
+								    </td>
+							    
+							    	<td>
+										<input name="HouseCapacity" class="app-input" placeholder="Capacity">
+									</td>
+							    </tr>
 						    </tr>
 						    
 						     
