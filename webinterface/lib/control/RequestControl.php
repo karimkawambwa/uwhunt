@@ -1,5 +1,6 @@
 <?php
 	include_once('LoginControl.php');
+	include_once('NavigationControl.php');
 
 	$request = '';
 
@@ -11,6 +12,11 @@
 				$loginControl = new LoginControl($request);
 				$loginControl->getLoginPage();
 				break;
+			case 'navigateToFront':
+				$navigationControl = new NavigationControl();
+				$navigationControl->getFrontPage();
+				break;
+
 			case 'loginStudent':
 				studentLogin();
 				break;
