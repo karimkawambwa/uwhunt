@@ -5,8 +5,8 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 		<title>Chataloo HUNT</title>
-		<meta name="description" content="Blueprint: Slide and Push Menus" />
-		<meta name="keywords" content="sliding menu, pushing menu, navigation, responsive, menu, css, jquery" />
+		<meta name="description" content="Chataloo - Hunt: Housing for Students, added by Students" />
+		<meta name="keywords" content="house hunting, house, student" />
 		<meta name="author" content="Karim" />
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="../../css/default.css" />
@@ -33,7 +33,13 @@
 	<body class="cbp-spmenu-push"  > <!-- onload="checkLogin()" -->
 		<header>
 			<div>
-				<button id="showLeftPush" style=" width: 50px; height:50px; background: #176af2; border:none;">Menu</button><h1 id="home">HUNT</h1> 
+				<div id="menuOpen" style="width:90px; height:34px; background: white; float:left; margin-left: -107px; margin-top: 14px; text-align:center">
+					<a href="#" id="showLeftPush"> 
+						<p style="color:black; font-family: calibri; margin-top:6px; font-weight:bold; font-size:120%" id="sideMenuTrigger">OPEN ></p>
+					</a>
+				</div>
+				<!--<button id="showLeftPush" style=" width:50px; height:35px; background: #176af2; border:none; float:left">Menu</button>-->
+				<h1 id="home">HUNT</h1> 
 			</div>
 			
 			<nav>

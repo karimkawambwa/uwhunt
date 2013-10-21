@@ -28,21 +28,28 @@ window.onload = function() {/*
 				showingLeft = false;
 				showingRight = false;
 
+			var sideMenuTrigger = document.getElementById('sideMenuTrigger');
 			showLeftPush.onclick = function() {
 				classie.toggle( this, 'active' );
 				classie.toggle( body, 'cbp-spmenu-push-toright' );
 				classie.toggle( menuLeft, 'cbp-spmenu-open' );
 				
-				if (showingLeft == true){
+				if(showingLeft == true){
 					showingLeft = false;
-				}else{
+					$('#sideMenuTrigger').replaceWith('<a href="#" id="showLeftPush"> '
+													+'<p style="color:black; font-family: calibri; margin-top:6px; font-weight:bold; font-size:120%" id="sideMenuTrigger">'
+													+'OPEN ></p></a>');
+				} else{
 					showingLeft = true;
+					$('#sideMenuTrigger').replaceWith('<a href="#" id="showLeftPush"> '
+													+'<p style="color:black; font-family: calibri; margin-top:6px; font-weight:bold; font-size:120%" id="sideMenuTrigger">'
+													+'< CLOSE</p></a>');
 				}
 				
 				if (showingRight == true){ // close left view
-				classie.toggle( body, 'cbp-spmenu-push-toleft' );
-				classie.toggle( regRight, 'cbp-spmenu-open' );
-				showingRight = false;
+					classie.toggle( body, 'cbp-spmenu-push-toleft' );
+					classie.toggle( regRight, 'cbp-spmenu-open' );
+					showingRight = false;
 				}
 				
 				disableOther( 'showLeftPush' );
