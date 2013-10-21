@@ -16,8 +16,10 @@
 		<link rel="stylesheet" type="text/css" href="../../css/forms.css" />
 		<script src="../../js/modernizr.custom.js"></script>
 		
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+		<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
 		<script src="http://malsup.github.com/jquery.form.js"></script>
+-->
 		<!-- jQuery -->
 		<script src="http://thecodeplayer.com/uploads/js/jquery-1.9.1.min.js" type="text/javascript"></script>
 		<!-- jQuery easing plugin -->
@@ -50,6 +52,8 @@
 				        <li><a href="#" id="dropdown-settings"><i class="icon-cog"></i>Settings</a></li>
 				        <li><a href="#" id="dropdown-logout" onclick="logout()"><i class="icon-remove"></i>Log out</a></li>
 				    </div>
+				    
+				    
 				    <div id="loggedOutMenu">
 				        <li ><a href="#" id="dropdown-register" onclick="show_Right()"><i class="icon-cog"></i>Register</a></li>
 				        <li><a href="#" id="dropdown-login" onclick="show_Left()"><i class="icon-remove"></i>Log in</a></li>
@@ -70,7 +74,10 @@
 					<input  id="log-in" value="login" name="command" class="custom-button" onclick="loginStudent()" style="cursor: pointer;"/>
 					<input  id="reg" value="Register" name="command" class="custom-button" style="cursor: pointer;"/>
 				</div>
-				<!--<input  id="log-out" value="logout"   name="command" class="custom-button" onclick="logout()"/>-->
+				
+				<div id="log-out-form">
+					<input  id="log-out" value="logout"  name="command" class="custom-button" onclick="logoutStudent()"/>
+				</div>
 			</h1>
 			
 			<a id="explore" href="#" onclick="document.getElementById('showLeftPush').click()">Explore		</a>
@@ -80,29 +87,7 @@
 			 
 		</nav>
 
-		<script type="text/javascript">
-			function loginStudent(){
-				var apiUrl = "RequestControl.php?request=loginStudent";
-				var formData = {username: $('#uname').val(), enteredPassword: $('#pword').val()};
-				$.ajax({
-					type: 'POST',
-					url: apiUrl,
-					data: formData,
-					dataType: 'json',
-
-					success: function(data){ //that is, server sent a response.
-						if(data.login == 'success'){
-							$('#log-in-form').replaceWith('<p>Logged in as: '
-								+data.username
-								+'</p>'
-								+'<input id="log-out" value="logout" name="command" class="custom-button" onclick="logout()"/>');
-						} else {
-							//show error
-						}
-					}
-				});
-			}
-		</script>
+		
 		
 		<nav class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-right" id="cbp-spmenu-reg">
 			<h3>Signup</h3>

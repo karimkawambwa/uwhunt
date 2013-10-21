@@ -160,52 +160,51 @@ window.onload = function() {/*
 			$(".submit").click(function(){
 				return false;
 			});
-				  
-			   $.ajax({ // ajax call starts
-				  	  type: "POST",
-					  url: 'database/access.php', // JQuery loads serverside.php
-					  data: "command=status", // Send value of the clicked button
-					  dataType: 'json', // Choosing a JSON datatype
-					  success: function(data) // Variable data contains the data we get from serverside
-					  {
-					  		//alert(data);
-							 if (data.Response.Login == 'LOGGED IN'){
-						
-								var userXM = data.Response.extraMap;
-						
-								document.getElementById("logged_in_as").innerHTML = "Logged in as: " 
-																	+ userXM.Firstname +" "
-																	+ userXM.Lastname +" ("
-																	+ userXM.Username + ")" ;
+				 
+			   ///////////////////////////NEW CALL///////////////////
+				var apiUrl = "RequestControl.php?request=status";
+				$.ajax({
+					type: 'POST',
+					url: apiUrl,
+					data: null,
+					dataType: 'json',
+
+					success: function(data){ //that is, server sent a response.
+					//alert(data);
+						if(data.status == 'loggedIn'){
+							$('#log-out-form').show();
+							$('#log-in-form').hide();
+
+							/*
+$('#log-in-form').replaceWith('<p>Logged in as: '
+								+data.username
+								+'</p>'
+								+'<input id="log-out" value="logout" name="command" class="custom-button" onclick="logout()"/>');
+*/
 								
-								/*
-document.getElementById("dp").innerHTML = '<li><a href="#"><i class="icon-user" ></i>Profile</a></li>' 
-																	+ '<li><a href="#"><i class="icon-cog"></i>Settings</a></li>'
-																	+ '<li><a href="#"><i class="icon-remove"></i>Log out</a></li>' ;
-*/	
-								$("#loggedInMenu").show();
-								$("#loggedOutMenu").hide();
-								//document.getElementById("indicator").innerHTML = ":) Success.";
-								
-								hideLoginForm();
-								//document.getElementById('showLeftPush').click();
-						
-							 }
-						 
-							 else if (data.Response.Login == 'NOT LOGGED IN'){
-								document.getElementById("logged_in_as").innerHTML = "Not logged in.";
-								/* document.getElementById("dp").innerHTML = "Log in" ; */
-								/*
-document.getElementById("dp").innerHTML = '<li><a href="#"><i class="icon-cog"></i>Register</a></li>'
-																	+ '<li><a href="#"><i class="icon-remove" onclick="alert("hi")"></i>Log in</a></li>' ;
-*/	
-								$("#loggedInMenu").hide();
-								$("#loggedOutMenu").show();
-								showLoginForm();
-							 }
-						 
-					  }
+							$("#loggedInMenu").show();
+							$("#loggedOutMenu").hide();
+							$("#logged_in_as").replaceWith('<h1 id="logged_in_as" align="right" >' 
+												+ "Logged in as: " + data.username + '</h1>');
+							//alert('hey');
+
+						} else if (data.status == 'nologin'){
+							$('#log-out-form').hide();
+							$('#log-in-form').show();
+
+							$("#loggedInMenu").hide();
+							$("#loggedOutMenu").show();
+							$("#logged_in_as").replaceWith('<h1 id="logged_in_as" align="right" >' 
+												+ 'Not logged In' + '</h1>');
+							//alert('hey');
+						}
+						else {
+							//show error
+							//alert('hey');
+						}
+					}
 				});
+			
 }
 
 /*

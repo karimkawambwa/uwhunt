@@ -1,3 +1,81 @@
+//////////////////NEW/////////////////////////////////
+
+function loginStudent(){
+	var apiUrl = "RequestControl.php?request=loginStudent";
+	var formData = {username: $('#uname').val(), enteredPassword: $('#pword').val()};
+	$.ajax({
+		type: 'POST',
+		url: apiUrl,
+		data: formData,
+		dataType: 'json',
+
+		success: function(data){ //that is, server sent a response.
+		
+			if(data.login == 'success'){
+				/*
+$('#log-in-form').replaceWith('<p>Logged in as: '
+					+data.username
+					+'</p>'
+					+'<input id="log-out" value="logout" name="command" class="custom-button" onclick="logout()"/>');
+*/
+alert(data.username);
+					
+					$('#log-in-form').hide();
+					$('#log-out-form').show();
+					$("#loggedInMenu").show();
+					$("#loggedOutMenu").hide();
+					$("#logged_in_as").replaceWith('<h1 id="logged_in_as" align="right" >' 
+												+ "Logged in as: " + data.username + '</h1>');
+					
+
+			} else {
+				//show error
+			}
+		}
+	});
+}
+
+function logoutStudent() { // This event fires when a button is clicked
+	  var apiUrl = "RequestControl.php?request=logout";
+	   $.ajax({ // ajax call starts
+		  	  type: "POST",
+			  url: apiUrl, // JQuery loads serverside.php
+			  data: null, // Send value of the clicked button
+			  dataType: 'json', // Choosing a JSON datatype
+			  success: function(data) // Variable data contains the data we get from serverside
+			  {
+					 if (data.logout == 'success'){
+			 
+																		
+						//document.getElementById("indicator").innerHTML = ":) Success.";
+						
+						$('#log-in-form').show();
+						$('#log-out-form').hide();
+						$("#loggedInMenu").hide();
+						$("#loggedOutMenu").show();
+						$("#logged_in_as").replaceWith('<h1 id="logged_in_as" align="right" >' 
+												+ 'Not logged In' + '</h1>');
+						document.getElementById('showLeftPush').click();
+				
+					 }
+				 
+					 else
+					 {
+					 
+					 }
+				 
+			  }
+		});
+}
+
+
+
+////////////////////////////////END OF NEW/////////////////////////////////
+
+
+
+
+
 function test(){
 	alert('test');
 }
@@ -17,6 +95,7 @@ function showLoginForm() {
 		$("#post-house").hide();
 		$("#log-out").hide();
 }
+
 
 function login() { // This event fires when a button is clicked
   		
@@ -321,4 +400,8 @@ for (var obj in data.Response){
 		      });
 
 }
+
+
+
+
 
