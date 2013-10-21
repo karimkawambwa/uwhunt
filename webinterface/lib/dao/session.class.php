@@ -42,10 +42,15 @@ function start_session($session_name, $secure) {
 }
 
 function open() {
- 		$host = 'localhost';
+ 	/*	$host = 'localhost';
 		$name = 'chataloo_Session';
 		$user = 'chataloo_session';
-		$pass = ']beATTl1Ud^3';
+		$pass = ']beATTl1Ud^3';*/
+      $host = 'localhost';
+      $name = 'uwhunt_web_db';
+      $user = 'root';
+      $pass = '';
+      
 		$mysqli = new mysqli($host, $user, $pass, $name);
 		$this->db = $mysqli;
 		return true;
