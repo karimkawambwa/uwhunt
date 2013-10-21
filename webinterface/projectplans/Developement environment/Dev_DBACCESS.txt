@@ -1,0 +1,17 @@
+-----------------DEVELOPEMENT ENVIRONMENT--------------------
+
+
+------Sessions Database
+
+$host = 'localhost',
+$database = 'chataloo_SESSIONDev',
+$user = 'chataloo_hdev',
+$password = 'huntdev2013'
+
+
+-------Hunt Database
+
+$host = 'localhost',
+$database = 'chataloo_HUNTDev',
+$user = 'chataloo_hdev',
+$password = 'huntdev2013'

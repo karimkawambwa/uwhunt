@@ -160,51 +160,38 @@ window.onload = function() {/*
 			$(".submit").click(function(){
 				return false;
 			});
-				 
-			   ///////////////////////////NEW CALL///////////////////
+			
+			///////////////////////////NEW CALL///////////////////
 				var apiUrl = "RequestControl.php?request=status";
 				$.ajax({
 					type: 'POST',
 					url: apiUrl,
 					data: null,
-					dataType: 'json',
+					//dataType: 'json',
 
 					success: function(data){ //that is, server sent a response.
-					//alert(data);
+					alert(data)
 						if(data.status == 'loggedIn'){
-							$('#log-out-form').show();
-							$('#log-in-form').hide();
-
-							/*
-$('#log-in-form').replaceWith('<p>Logged in as: '
+							$('#log-in-form').replaceWith('<p>Logged in as: '
 								+data.username
 								+'</p>'
 								+'<input id="log-out" value="logout" name="command" class="custom-button" onclick="logout()"/>');
-*/
 								
 							$("#loggedInMenu").show();
 							$("#loggedOutMenu").hide();
-							$("#logged_in_as").replaceWith('<h1 id="logged_in_as" align="right" >' 
-												+ "Logged in as: " + data.username + '</h1>');
-							//alert('hey');
+							$("#logged_in_as").html('"Logged in as: " + data.username');
 
 						} else if (data.status == 'nologin'){
-							$('#log-out-form').hide();
-							$('#log-in-form').show();
-
 							$("#loggedInMenu").hide();
-							$("#loggedOutMenu").show();
-							$("#logged_in_as").replaceWith('<h1 id="logged_in_as" align="right" >' 
-												+ 'Not logged In' + '</h1>');
-							//alert('hey');
+							$("#loggedOutMenu").show()
 						}
 						else {
 							//show error
-							//alert('hey');
 						}
 					}
 				});
-			
+
+
 }
 
 /*
