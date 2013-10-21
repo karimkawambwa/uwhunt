@@ -59,7 +59,8 @@
 					$user_browser = $_SERVER['HTTP_USER_AGENT']; 
 					
 					// XSS protection as we might print these values
-					$user_id = preg_replace("/[^0-9]+/", "", $student->student_id); 									$_username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $_username); 
+					$user_id = preg_replace("/[^0-9]+/", "", $student->student_id);
+					$_username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $_username); 
 					
 					//set the sessions
 					$_SESSION['studentId'] = $user_id; 
