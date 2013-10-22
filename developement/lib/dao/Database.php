@@ -12,10 +12,10 @@ class Database {
 	
 	public function __construct(
         $host = 'localhost',
-        $database = 'chataloo_HUNT',
-        $user = 'chataloo_hunt',
-        $password = 'hunt2013'
-    )
+		$database = 'chataloo_HUNTDev',
+		$user = 'chataloo_hdev',
+		$password = 'huntdev2013'    
+		)
     {
         $this->_host   = $host;
         $this->_database = $database;

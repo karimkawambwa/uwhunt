@@ -1,3 +1,4 @@
+
 -- phpMyAdmin SQL Dump
 -- version 4.0.5
 -- http://www.phpmyadmin.net
@@ -235,4 +236,5 @@ CREATE TABLE IF NOT EXISTS `Student_Confirmation` (
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-         
+
+Status API Training Shop Blog About © 2013 GitHub, Inc. Terms Privacy Security Contact 

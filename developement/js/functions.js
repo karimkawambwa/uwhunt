@@ -17,7 +17,8 @@ $('#log-in-form').replaceWith('<p>Logged in as: '
 					+data.username
 					+'</p>'
 					+'<input id="log-out" value="logout" name="command" class="custom-button" onclick="logout()"/>');
-*/					
+*/
+					
 					$('#log-in-form').hide();
 					$('#log-out-form').show();
 					$("#loggedInMenu").show();

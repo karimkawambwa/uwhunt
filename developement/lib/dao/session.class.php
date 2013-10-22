@@ -46,10 +46,10 @@ function open() {
 		$name = 'chataloo_Session';
 		$user = 'chataloo_session';
 		$pass = ']beATTl1Ud^3';*/
-        $host = 'localhost';
-		$name = 'chataloo_Session';
-		$user = 'chataloo_session';
-		$pass = ']beATTl1Ud^3';
+			$host = 'localhost';
+			$name = 'chataloo_SESSIONDev';
+			$user = 'chataloo_hdev';
+			$pass = 'huntdev2013';
       
 		$mysqli = new mysqli($host, $user, $pass, $name);
 		$this->db = $mysqli;

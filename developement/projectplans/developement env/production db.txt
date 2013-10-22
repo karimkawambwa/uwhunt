@@ -1,0 +1,13 @@
+-------Hunt Database
+  
+        $host = 'localhost',
+        $database = 'chataloo_HUNT',
+        $user = 'chataloo_hunt',
+        $password = 'hunt2013'
+
+------Sessions Database
+
+        $host = 'localhost';
+		$name = 'chataloo_Session';
+		$user = 'chataloo_session';
+		$pass = ']beATTl1Ud^3';
