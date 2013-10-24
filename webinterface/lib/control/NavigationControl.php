@@ -7,8 +7,12 @@
 		}
 
 		public function getFrontPage(){
-			include '../views/frontPageView.php';
+			include_once '../views/frontPageView.php';
 		}
 
+		public function getStudentProfile($studentObject){
+			$data = $studentObject;
+			include_once '../views/studentProfileView.php';
+		}
 	}
 ?>

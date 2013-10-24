@@ -1,5 +1,6 @@
 <?php
 	include_once 'Database.php';
+	//include_once '../domain/Student.php';
 
 	class StudentDao extends Database{
 		
@@ -11,6 +12,69 @@
 
 		}
 		
+
+		public function getStudentByValue($getBy, $value){
+			$this->openConnection();
+			$dbConnection = $this->_connection;
+			$sql = '';
+			
+			try {
+				if($getBy == 'id'){
+					$sql = "SELECT * FROM Student WHERE student_id = ". $value;
+				} else {
+					$sql = "SELECT * FROM Student WHERE username LIKE '".$value."'";
+				}
+
+				$result = $dbConnection->query($sql);
+
+				$result->setFetchMode(PDO::FETCH_CLASS, 'Student');
+
+				if($result->rowCount() == 1){
+					$student = $result->fetch();
+					return $student;
+				} else {
+					return null;
+				}
+
+			} catch (Exception $e) {
+				error_log("Error getting Student: ". $e->getMessage()) ;
+				return null;
+			}
+
+		}
+		/*
+		 * Function addes student to the db. Returns id last record.
+		 * Will need to add persistance to all these functions; 
+		 * I.E: what happens if the connection to the db is cut off before call finished etc.
+		 * We cannot have half entered data.
+		 */
+		public function registerStudent($studentObject){
+			$this->openConnection();
+			$dbConnection = $this->_connection;
+			$studentObject->salt = ''; //get from a file of salts? I dont know
+			try {
+				$sql = "INSERT INTO student(first_name, last_name, username, 
+											student_password, salt, student_email, student_phone)
+								VALUES(?, ? , ?, ?, ?, ?, ?)";
+				$stmt = $dbConnection->prepare($sql);
+				$data = array('', 
+							  '', 
+							  $studentObject->username,
+							  hash("sha256", $studentObject->student_password . $studentObject->salt),
+							  $studentObject->salt,
+							  $studentObject->student_email,
+							  $studentObject->student_phone);
+				$valid = $stmt->execute($data);
+				$lastId = $dbConnection->lastInsertId();
+				$studentObject = $this->getStudentByValue('id', $lastId);
+
+				return $studentObject;
+				
+			} catch (Exception $e) {
+				error_log("Error Registering student: ". $e->getMessage()) ;
+				return null;
+			}
+		}
 		private function checkbrute($user_id) {
 			   	// Get timestamp of current time
 		   	$now = time();

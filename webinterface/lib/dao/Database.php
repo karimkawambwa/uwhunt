@@ -12,9 +12,9 @@ class Database {
 	
 	public function __construct(
         $host = 'localhost',
-        $database = 'chataloo_HUNT',
-        $user = 'chataloo_hunt',
-        $password = 'hunt2013'
+        $database = 'uwhunt_web_db',
+        $user = 'root',
+        $password = ''
     )
     {
         $this->_host   = $host;
