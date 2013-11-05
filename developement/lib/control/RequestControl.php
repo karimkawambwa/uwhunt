@@ -1,21 +1,19 @@
 <?php
 	include_once('LoginControl.php');
+	include_once('StudentControl.php');
 	include_once('NavigationControl.php');
-	require('../dao/session.class.php');
+	include_once('../domain/Student.php');
+	
+	require('../dao/session.class.php'); //required!!
 
 	$request = '';
-
+	$navigationControl = new NavigationControl();
 	if(isset($_GET['request'])){
 		$request = $_GET['request'];
 
 		switch ($request){
-			case 'navigateToLogin':
-				$loginControl = new LoginControl($request);
-				$loginControl->getLoginPage();
-				break;
-			case 'navigateToFront':
-				$navigationControl = new NavigationControl();
-				$navigationControl->getFrontPage();
+			case 'studentSignUp':
+				registerStudent();
 				break;
 
 			case 'loginStudent':
@@ -54,15 +52,27 @@
 				checkLoginStatus();
 				break;
 				
-				
+			case 'studentProfile':
+				$studentId = $_GET['studentId'];
+				$student = new Student();
+				$studentControl = new StudentControl($student);
+				$returnedStudent = $studentControl->getStudentById($studentId);
+				$navigationControl->getStudentProfile($returnedStudent);
+				break;
 			default:
-				//Welcome page
-				echo '<h1>Welcome Your Grace';
+				//Home page
+				$navigationControl->getFrontPage();
 				break;
 		}
 	} else {
 		//Welcome page
-		echo '<h1>Welcome Your Grace</h1>';
+		$navigationControl->getFrontPage();
+	}
+	
+	function registerStudent(){
+		$student = new Student();
+		$studentControl = new StudentControl($student);
+		$studentControl->studentSignUp($_POST);
 	}
 	
 	function checkLoginStatus(){

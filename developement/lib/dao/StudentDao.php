@@ -1,5 +1,6 @@
 <?php
 	include_once 'Database.php';
+	//include_once '../domain/Student.php';
 
 	class StudentDao extends Database{
 		
@@ -9,6 +10,101 @@
 
 		public function getStudent($studentObject){
 
+		}
+		
+
+		public function getStudentByValue($getBy, $value){
+			$this->openConnection();
+			$dbConnection = $this->_connection;
+			$sql = '';
+			
+			try {
+				if($getBy == 'id'){
+					$sql = "SELECT * FROM Student WHERE student_id = ". $value;
+				} else {
+					$sql = "SELECT * FROM Student WHERE username LIKE '".$value."'";
+				}
+
+				$result = $dbConnection->query($sql);
+
+				$result->setFetchMode(PDO::FETCH_CLASS, 'Student');
+
+				if($result->rowCount() == 1){
+					$student = $result->fetch();
+					return $student;
+				} else {
+					return null;
+				}
+
+			} catch (Exception $e) {
+				error_log("Error getting Student: ". $e->getMessage()) ;
+				return null;
+			}
+
+		}
+		/*
+		 * Function addes student to the db. Returns id last record.
+		 * Will need to add persistance to all these functions; 
+		 * I.E: what happens if the connection to the db is cut off before call finished etc.
+		 * We cannot have half entered data.
+		 */
+		public function registerStudent($studentObject){
+			$this->openConnection();
+			$dbConnection = $this->_connection;
+			
+			/*
+			 * Below function uses for loop to select letters nd numbers at random
+			 * It will produce a 100 character long string
+			*/
+			
+			$randString="";
+			$charUniverse="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			$i = 0;
+			
+			for($i=0; $i<100; $i++){
+			   $randInt=rand(0,61);
+				$randChar=$charUniverse[$randInt];
+				$randString.=$randChar;
+				$i +=1;
+			}
+			
+			/*
+			 * Below function uses the system clock to generate a unique number id
+			 * This number is then appended to the previous generated number to make it more random
+			 * This will be enough security for the password
+			*/
+			
+			$salt = uniqid($randString, false); //false means no decimal number return from clock
+			
+			$studentObject->salt = $salt; //get from a file of salts? I dont know
+			try {
+				$sql = "INSERT INTO Student(first_name, last_name, username, 
+											student_password, salt, student_email, student_phone)
+								VALUES(:fname, :lname , :uname, :spass, :s, :semail, :sphone)";
+				$stmt = $dbConnection->prepare($sql);
+				
+				$valid = $stmt->execute( array(":fname"=>'', ":lname"=>'', 
+							  			 ":uname" => '',//$studentObject->username
+							  			 ":spass" =>hash("sha256", $studentObject->student_password . 
+							  							  $studentObject->salt),
+							  						
+							  			 ":s" => $studentObject->salt,
+							  			 ":semail" => $studentObject->student_email,
+							  			 ":sphone" =>'0000000000' //$studentObject->student_phone
+							  																));
+							  																
+				//$valid = $stmt->execute($data);
+				echo 'here';
+				$lastId = $dbConnection->lastInsertId();
+				
+				$studentObject = $this->getStudentByValue('id', $lastId);
+
+				return $studentObject;
+				
+			} catch (Exception $e) {
+				error_log("Error Registering student: ". $e->getMessage()) ;
+				return null;
+			}
 		}
 		
 		private function checkbrute($user_id) {

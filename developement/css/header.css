@@ -1,6 +1,4 @@
 
-* { padding: 0; margin: 0; }
-body { /* background: #1abc9c; */ /* font-family: 'Lato', sans-serif; */ text-transform: uppercase; letter-spacing: 1px;}
  
 header {
     text-align: justify;
@@ -11,6 +9,8 @@ header {
     padding: 2em 5%;
     background: #2c3e50;
     color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
  
 header::after {

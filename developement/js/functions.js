@@ -17,8 +17,7 @@ $('#log-in-form').replaceWith('<p>Logged in as: '
 					+data.username
 					+'</p>'
 					+'<input id="log-out" value="logout" name="command" class="custom-button" onclick="logout()"/>');
-*/
-					
+*/					
 					$('#log-in-form').hide();
 					$('#log-out-form').show();
 					$("#loggedInMenu").show();
@@ -66,6 +65,71 @@ function logoutStudent() { // This event fires when a button is clicked
 			  }
 		});
 }
+
+function signupStudent() { // This event fires when a button is clicked
+	
+	var apiUrl = "RequestControl.php?request=studentSignUp";
+	
+	if (document.getElementById('enteredPassword').value == 
+		document.getElementById('confirmPassword').value &&
+		document.getElementById('enteredPassword').value != '' &&
+		document.getElementById('confirmPassword').value != ''		){
+  		
+  		// alert ('firstname' + document.getElementById('firstname').value ); //test fields
+//   		alert ('lastname' + document.getElementById('lastname').value );
+//   		alert ('pass1' + document.getElementById('pass1').value );
+//   		alert ('email' + document.getElementById('email').value );
+//   		alert ('phone_number' + document.getElementById('phone_number').value );
+//   		alert ('allow_calling' + document.getElementById('allow_calling').value );
+  		
+	  var _data =  	"enteredPassword=" + document.getElementById('enteredPassword').value +
+					"&studentEmail=" + document.getElementById('studentEmail').value ;
+		
+	  document.getElementById("reg-indicator").innerHTML = "loading...";
+	  
+	   $.ajax({ // ajax call starts
+		  type: "POST",
+			  url: apiUrl,//'database/access.php', // JQuery loads serverside.php
+			  data: _data, //data, // Send value of the clicked button
+			  dataType: 'json', // Choosing a JSON datatype
+			  success: function(data) // Variable data contains the data we get from serverside
+			  {
+					if (data == 'email exists'){
+						document.getElementById('email').value = "";
+						document.getElementById("reg-indicator").innerHTML = "failed: " + data;
+					}
+					else if (data == 'username exists'){
+						document.getElementById('username').value = "";
+						document.getElementById("reg-indicator").innerHTML = "failed: " + data;
+					}
+					else if (data == 'success'){
+						document.getElementById("reg-indicator").innerHTML = "Success";
+						document.getElementById('cancel').click();
+					}
+					else if (data == 'failed'){
+						document.getElementById("reg-indicator").innerHTML = "Failed";
+					}
+					else
+					{
+						document.getElementById("reg-indicator").innerHTML = data + " :( Something went really wrong, be assured we are on it!";
+					}
+			  
+			  }
+	  });
+			
+	  
+	  }else{
+	  
+		  document.getElementById('enteredPassword').value = "";
+		  document.getElementById('confirmPassword').value = "";
+		  document.getElementById("reg-indicator").innerHTML = 
+		  "Password fields can't be empty or passwords dont match.";
+		
+		}
+			
+
+}
+
 
 
 
