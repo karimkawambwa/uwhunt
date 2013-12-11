@@ -1,0 +1,85 @@
+[17-Nov-2013 23:10:07 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[17-Nov-2013 23:10:07 UTC] PHP Warning:  array_merge() [<a href='function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in /home/chataloo/public_html/uwhunt/backend/functions/Respond.php on line 33
+[17-Nov-2013 23:12:42 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[17-Nov-2013 23:12:42 UTC] PHP Warning:  array_merge() [<a href='function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in /home/chataloo/public_html/uwhunt/backend/functions/Respond.php on line 33
+[17-Nov-2013 23:13:25 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[17-Nov-2013 23:13:25 UTC] PHP Warning:  array_merge() [<a href='function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in /home/chataloo/public_html/uwhunt/backend/functions/Respond.php on line 35
+[17-Nov-2013 23:13:43 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[17-Nov-2013 23:13:43 UTC] PHP Warning:  array_merge() [<a href='function.array-merge'>function.array-merge</a>]: Argument #2 is not an array in /home/chataloo/public_html/uwhunt/backend/functions/Respond.php on line 36
+[17-Nov-2013 23:14:16 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[18-Nov-2013 07:23:40 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 15:51:53 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 16:24:35 UTC] PHP Fatal error:  Using $this when not in object context in /home/chataloo/public_html/uwhunt/backend/Request.php on line 102
+[19-Nov-2013 16:24:54 UTC] PHP Fatal error:  Using $this when not in object context in /home/chataloo/public_html/uwhunt/backend/Request.php on line 102
+[19-Nov-2013 16:25:06 UTC] PHP Fatal error:  Using $this when not in object context in /home/chataloo/public_html/uwhunt/backend/Request.php on line 102
+[19-Nov-2013 16:25:09 UTC] PHP Fatal error:  Using $this when not in object context in /home/chataloo/public_html/uwhunt/backend/Request.php on line 102
+[19-Nov-2013 16:31:32 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 16:38:18 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 16:48:45 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 16:48:55 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 16:48:58 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 16:58:14 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 16:58:29 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 16:58:33 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 17:01:35 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 18:21:54 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 18:22:21 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:09:42 UTC] PHP Fatal error:  Cannot use object of type Student as array in /home/chataloo/public_html/uwhunt/backend/controllers/Authentication.php on line 50
+[19-Nov-2013 20:11:53 UTC] PHP Fatal error:  Cannot use object of type Student as array in /home/chataloo/public_html/uwhunt/backend/controllers/Authentication.php on line 50
+[19-Nov-2013 20:13:56 UTC] PHP Fatal error:  Cannot use object of type Student as array in /home/chataloo/public_html/uwhunt/backend/controllers/Authentication.php on line 50
+[19-Nov-2013 20:16:08 UTC] PHP Fatal error:  Cannot use object of type Student as array in /home/chataloo/public_html/uwhunt/backend/controllers/Authentication.php on line 55
+[19-Nov-2013 20:16:51 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:16:51 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:17:11 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:17:11 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:17:24 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:17:24 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:17:37 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:17:37 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:17:53 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:17:53 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:18:00 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:18:00 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:18:49 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:18:49 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:19:07 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:19:07 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:20:52 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:20:52 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:20:54 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:20:54 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:21:21 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:21:21 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:21:52 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:21:52 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:22:45 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 20:22:45 UTC] Error getting Student info from Student_Confirmation: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'where clause'
+[19-Nov-2013 22:50:48 UTC] PHP Warning:  error_log() expects parameter 1 to be string, object given in /home/chataloo/public_html/uwhunt/backend/dao/StudentDao.php on line 218
+[11-Dec-2013 02:19:32 UTC] PHP Fatal error:  Cannot access empty property in /home/chataloo/public_html/uwhunt/backend/objects/House.php on line 57
+[11-Dec-2013 02:36:41 UTC] PHP Fatal error:  Cannot access empty property in /home/chataloo/public_html/uwhunt/backend/objects/House.php on line 57
+[11-Dec-2013 02:38:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 236
+[11-Dec-2013 02:38:48 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 252
+[11-Dec-2013 02:39:52 UTC] PHP Parse error:  syntax error, unexpected T_AS, expecting ';' in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 236
+[11-Dec-2013 02:41:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 236
+[11-Dec-2013 02:41:23 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 252
+[11-Dec-2013 03:03:12 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/chataloo/public_html/uwhunt/backend/objects/House.php on line 59
+[11-Dec-2013 03:04:01 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/chataloo/public_html/uwhunt/backend/objects/House.php on line 59
+[11-Dec-2013 03:04:06 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/chataloo/public_html/uwhunt/backend/objects/House.php on line 59
+[11-Dec-2013 03:22:13 UTC] PHP Warning:  stripslashes() expects parameter 1 to be string, array given in /home/chataloo/public_html/uwhunt/backend/objects/House.php on line 61
+[11-Dec-2013 03:29:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 243
+[11-Dec-2013 03:29:11 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 259
+[11-Dec-2013 03:34:29 UTC] PHP Warning:  PDOStatement::execute() expects parameter 1 to be array, string given in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 246
+[11-Dec-2013 03:42:43 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 260
+[11-Dec-2013 03:43:42 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 262
+[11-Dec-2013 15:36:10 UTC] PHP Fatal error:  Cannot redeclare class DataAccessor in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 75
+[11-Dec-2013 15:36:54 UTC] PHP Fatal error:  Cannot redeclare class DataAccessor in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 75
+[11-Dec-2013 15:36:58 UTC] PHP Fatal error:  Cannot redeclare class DataAccessor in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 75
+[11-Dec-2013 15:37:11 UTC] PHP Fatal error:  Cannot redeclare class DataAccessor in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 72
+[11-Dec-2013 15:37:58 UTC] PHP Fatal error:  Cannot redeclare class DataAccessor in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 69
+[11-Dec-2013 15:38:14 UTC] PHP Parse error:  syntax error, unexpected ';', expecting T_FUNCTION in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 70
+[11-Dec-2013 15:39:43 UTC] PHP Fatal error:  Cannot redeclare class DataAccessor in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 66
+[11-Dec-2013 15:40:57 UTC] PHP Fatal error:  Cannot redeclare class DataAccessor in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 70
+[11-Dec-2013 15:41:33 UTC] PHP Fatal error:  Cannot redeclare class DataAccessor in /home/chataloo/public_html/uwhunt/backend/dao/DataAccessor.php on line 45
+[11-Dec-2013 15:42:56 UTC] PHP Warning:  include_once(dao/DataLoader.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory in /home/chataloo/public_html/uwhunt/backend/controllers/DataAccessor.php on line 9
+[11-Dec-2013 15:42:56 UTC] PHP Warning:  include_once() [<a href='function.include'>function.include</a>]: Failed opening 'dao/DataLoader.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/chataloo/public_html/uwhunt/backend/controllers/DataAccessor.php on line 9
+[11-Dec-2013 15:45:28 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/chataloo/public_html/uwhunt/backend/dao/HouseDao.php on line 283

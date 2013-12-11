@@ -77,6 +77,7 @@
 			$salt = uniqid($randString, false); //false means no decimal number return from clock
 			
 			$studentObject->salt = $salt; //get from a file of salts? I dont know
+			
 			try {
 				$sql = "INSERT INTO Student(first_name, last_name, username, 
 											student_password, salt, student_email, student_phone)

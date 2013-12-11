@@ -15,3 +15,8 @@
 [27-Oct-2013 19:01:28 UTC] Error Registering student: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'chataloo_HUNTDev.student' doesn't exist
 [27-Oct-2013 19:06:51 UTC] Error Registering student: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'chataloo_HUNTDev.student' doesn't exist
 [27-Oct-2013 19:07:13 UTC] Error Registering student: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'chataloo_HUNTDev.student' doesn't exist
+[15-Nov-2013 21:18:25 UTC] PHP Fatal error:  Cannot redeclare class Student in /home/chataloo/public_html/uwhunt/developement/lib/domain/Mail.php on line 2
+[15-Nov-2013 21:18:46 UTC] PHP Fatal error:  Cannot redeclare class Student in /home/chataloo/public_html/uwhunt/developement/lib/domain/Mail.php on line 2
+[15-Nov-2013 21:18:51 UTC] PHP Fatal error:  Cannot redeclare class Student in /home/chataloo/public_html/uwhunt/developement/lib/domain/Mail.php on line 2
+[15-Nov-2013 21:19:00 UTC] PHP Fatal error:  Cannot redeclare class Student in /home/chataloo/public_html/uwhunt/developement/lib/domain/Mail.php on line 2
+[15-Nov-2013 21:20:01 UTC] PHP Fatal error:  Cannot redeclare class Student in /home/chataloo/public_html/uwhunt/developement/lib/domain/Mail.php on line 2

@@ -1,6 +1,7 @@
 <?php
 	include_once('../dao/StudentDao.php');
 	include_once('../control/NavigationControl.php');
+	include_once('../domain/Mail.php');
 
 	class StudentControl{
 		public $student ;//student object; new or with actual data
@@ -28,6 +29,10 @@
 			if($returnedStudent != null) {
 				//$navigationControl = new NavigationControl();
 				//$navigationControl->getStudentProfile($returnedStudent);
+				
+				// send validation email
+				
+				
 				echo json_encode(array('registration' => 'succeeded',
 											 'email' => $this->student->student_email));
 
